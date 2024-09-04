@@ -3,10 +3,13 @@ import Warning from "./Warning";
 
 export default function Textarea() {
   const [text, setText] = useState("");
+  const [warning, setWarning] = useState(false);
+
   const handleChange = (e) => {
     const newText = e.target.value;
     if (newText.includes("<script>")) {
-      setText("");
+      newText.replace("<script>", "");
+      setWarning(true);
       return;
     }
     setText(newText);
@@ -20,7 +23,7 @@ export default function Textarea() {
         placeholder="Enter some text here..."
         spellCheck="false"
       />
-      <Warning />
+      {warning && <Warning />}
     </div>
   );
 }
