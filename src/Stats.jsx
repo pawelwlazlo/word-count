@@ -12,7 +12,9 @@ export default function Stats({ stats }) {
 function Stat({ count, title }) {
   return (
     <section className="stat">
-      <span className="set__number">{count}</span>
+      <span className={`set__number ${count < 0 && "stat__number--limit"}`}>
+        {count}
+      </span>
       <h2 className="second-heading">{title}</h2>
     </section>
   );
