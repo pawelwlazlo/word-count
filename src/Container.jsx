@@ -4,7 +4,6 @@ import Textarea from "./Textarea";
 
 export default function Container() {
   const [text, setText] = useState("");
-  const numberOfCharacters = text.length;
   const stats = {
     numberOfCharacters: text.length,
     numberOfWords: text.split(" ").filter((word) => word !== "").length,
